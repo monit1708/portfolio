@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monit Bhattacharjee - Portfolio</title>
+  
+  <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Load Poppins Font --><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="min-h-screen">
+
+  <!-- Transition Loader (from second file) --><div id="loader" class="loader-container">
+    <h1 class="fade-text text-red-600 wave-text">
+        <span style="animation-delay: 0s">M</span>
+        <span style="animation-delay: 0.05s">o</span>
+        <span style="animation-delay: 0.1s">n</span>
+        <span style="animation-delay: 0.15s">i</span>
+        <span style="animation-delay: 0.2s">t</span>
+        <span class="ml-2" style="animation-delay: 0.25s">B</span>
+        <span style="animation-delay: 0.3s">h</span>
+        <span style="animation-delay: 0.35s">a</span>
+        <span style="animation-delay: 0.4s">t</span>
+        <span style="animation-delay: 0.45s">t</span>
+        <span style="animation-delay: 0.5s">a</span>
+        <span style="animation-delay: 0.55s">c</span>
+        <span style="animation-delay: 0.6s">h</span>
+        <span style="animation-delay: 0.65s">a</span>
+        <span style="animation-delay: 0.7s">r</span>
+        <span style="animation-delay: 0.75s">j</span>
+        <span style="animation-delay: 0.8s">e</span>
+        <span style="animation-delay: 0.85s">e</span>
+    </h1>
+  </div>
+
+  <!-- 
+    Main content wrapper (from second file)
+    This wraps all your original content to make it fade in.
+  --><div id="main-content" class="opacity-0 transition-opacity duration-1000">
+
+    <!-- 
+    ======================================================================
+    1. "WHO'S WATCHING?" PROFILE SELECTION PAGE
+    This is the homepage, shown by default.
+    ======================================================================
+    --><section id="profile-selection-page" class="h-screen min-h-[700px] flex flex-col items-center justify-center text-center px-6 bg-[#141414]">
+      <h1 class="text-4xl md:text-6xl font-semibold mb-12 text-white">Who's Watching?</h1>
+      <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+        
+        <!-- Profile Button: Recruiter --><button data-role="recruiter" class="profile-select-button group w-32 md:w-40 flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-all duration-200">
+          <img src="https://robohash.org/recruiter?set=set2&size=150x150&bgset=bg1" alt="Recruiter" class="w-full h-auto rounded-md border-4 border-transparent group-hover:border-white transition-all duration-200" />
+          <span class="text-lg font-medium">Recruiter</span>
+        </button>
+        
+        <!-- Profile Button: Developer --><button data-role="developer" class="profile-select-button group w-32 md:w-40 flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-all duration-200">
+          <img src="https://robohash.org/developer?set=set2&size=150x150&bgset=bg2" alt="Developer" class="w-full h-auto rounded-md border-4 border-transparent group-hover:border-white transition-all duration-200" />
+          <span class="text-lg font-medium">Developer</span>
+        </button>
+        
+        <!-- Profile Button: Stalker (maps to recruiter) --><button data-role="stalker" class="profile-select-button group w-32 md:w-40 flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-all duration-200">
+          <img src="https://robohash.org/stalker?set=set2&size=150x150&bgset=bg1" alt="Stalker" class="w-full h-auto rounded-md border-4 border-transparent group-hover:border-white transition-all duration-200" />
+          <span class="text-lg font-medium">Stalker</span>
+        </button>
+        
+        <!-- Profile Button: Adventurer (maps to developer) --><button data-role="adventurer" class="profile-select-button group w-32 md:w-40 flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-all duration-200">
+          <img src="https://robohash.org/adventurer?set=set2&size=150x150&bgset=bg2" alt="Adventurer" class="w-full h-auto rounded-md border-4 border-transparent group-hover:border-white transition-all duration-200" />
+          <span class="text-lg font-medium">Adventurer</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 
+    ======================================================================
+    2. MAIN PORTFOLIO PAGE
+    This entire section is hidden until a profile is selected.
+    It contains the Navbar and all the "views".
+    ======================================================================
+    --><div id="main-portfolio-page" class="hidden">
+      
+      <!-- Navbar --><header class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            
+            <!-- Left Side: Logo + Nav Links --><div class="flex items-center">
+              <!-- Logo --><div class="flex-shrink-0 flex items-center">
+                <h1 id="nav-name" class="text-xl font-bold text-red-600 uppercase nav-brand-glow"></h1>
+              </div>
+              <!-- Nav Links --><div class="hidden sm:block sm:ml-6">
+                <div class="flex space-x-4">
+                  <!-- These buttons navigate between views --><button data-view="home" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</button>
+                  <button data-view="professional" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Professional</button>
+                  <button data-view="skills" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</button>
+                  <button data-view="projects" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</button>
+                  <button data-view="contact" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hire Me</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Profile Icon (NEW) --><div class="hidden sm:block">
+              <button id="nav-profile-button" class="hidden rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <span class="sr-only">View profile</span>
+                <img id="nav-profile-img" class="h-8 w-8 rounded-full object-cover" src="" alt="User profile">
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Area --><main>
+
+        <!-- 
+        =================================
+        VIEW: HOME
+        (Hero, Greeting, Top Picks Rows)
+        =================================
+        --><div id="view-home" class="view-container">
+          <!-- Hero Section --><section class="h-screen min-h-[700px] flex items-center justify-center relative text-white">
+            <div class="absolute inset-0 z-0">
+              <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?auto=format&fit=crop&w=2560&q=80" alt="Snowy mountain background" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto px-4 text-left">
+              <h2 id="hero-name" class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"></h2>
+              <h3 id="hero-title" class="text-2xl sm:text-3xl md:text-4xl font-semibold text-red-500 mt-2"></h3>
+              <p id="hero-about" class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl"></p>
+              <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                <button id="hero-view-work-btn" class="flex items-center justify-center px-8 py-3 bg-white text-gray-900 font-medium rounded-md shadow-lg transform transition-transform hover:scale-105">
+                  <!-- SVG: ResumeIcon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  View My Work
+                </button>
+                <a id="hero-linkedin-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center px-8 py-3 bg-gray-700 text-white font-medium rounded-md shadow-lg transform transition-transform hover:scale-105 hover:bg-gray-600">
+                  <!-- SVG: LinkedInIcon --><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Personalized Greeting --><div class="bg-[#141414] pt-12 sm:pt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 id="personalized-greeting-text" class="text-3xl font-bold text-white"></h2>
+              <p class="text-lg text-gray-400 mt-1">Here are your personalized recommendations for today.</p>
+            </div>
+          </div>
+          
+          <!-- This ID allows the hero button to scroll down --><div id="top-picks-container">
+            <!-- Top Picks Row --><section class="py-12 sm:py-16 bg-[#141414]">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-white mb-6">Today's Top Picks</h2>
+                <div id="main-picks-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                  <!-- Pick cards will be injected here by JS --></div>
+              </div>
+            </section>
+            
+            <!-- Continue Watching Row --><section class="py-12 sm:py-16 bg-[#141414]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 class="text-3xl font-bold text-white mb-6">Continue Watching</h2>
+              <div id="continue-watching-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                <!-- User's new card, hard-coded and wrapped in a functional button --><button data-view="contact" class="nav-link">
+                  <!-- Contact-Me tile --><div
+                      class="relative w-60 h-36 bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
+                    >
+                      <img
+                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                        alt="Contact Me"
+                        class="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity duration-300 hover:opacity-80"
+                      />
+                      <div class="absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white text-lg font-semibold">Contact Me</h3>
+                      </div>
+                    </div>
+                  </button>
+
+                  <!-- NEW: Hobbies tile (now a button) -->
+                  <button data-view="hobbies" class="nav-link">
+                    <div
+                      class="relative w-60 h-36 bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
+                    >
+                      <img
+                        src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+                        alt="Hobbies"
+                        class="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity duration-300 hover:opacity-80"
+                      />
+                      <div class="absolute inset-0 flex flex-col justify-end p-4">
+                        <h3 class="text-white text-lg font-semibold">Hobbies & Interests</h3>
+                        <p class="text-sm text-gray-300 truncate">Chess, Debates, Music & More</p>
+                      </div>
+                    </div>
+                  </button>
+                  
+                  <!-- Other cards will be injected here by JS -->
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- 
+        =================================
+        VIEW: PROFESSIONAL (ABOUT)
+        =================================
+        --><div id="view-professional" class="view-container hidden">
+          <section class="py-16 bg-gray-900 min-h-screen pt-24 sm:pt-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <!-- About Me Intro --><div class="text-center mb-16 sm:mb-20">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">About Me</h2>
+                <p id="professional-about-text" class="text-lg text-gray-300 max-w-3xl mx-auto"></p>
+              </div>
+        
+              <!-- Journey Title --><h2 class="text-3xl sm:text-4xl font-bold text-white mb-12 text-center">
+                My Journey
+                <div class="h-1 w-24 bg-red-600 mx-auto mt-2"></div>
+              </h2>
+        
+              <!-- Timeline Container --><div class="relative max-w-3xl mx-auto">
+                
+                <!-- Timeline Vertical Line --><div class="absolute left-4 sm:left-1/2 w-1 h-full bg-gray-800 -translate-x-1/2" aria-hidden="true"></div>
+        
+                <!-- Timeline List --><ul class="relative space-y-10">
+                  
+                  <!-- University Item --><li class="relative">
+                    <div class="absolute top-1.5 left-4 sm:left-1/2 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center -translate-x-1/2 ring-4 ring-gray-900">
+                      <!-- SVG: University Icon --><svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 10.69L12 14.18l6.51-3.49L12 7.82 5.49 10.69zM12 15.68L3.41 11.2 3 11.42v5.16C3 17.93 7.03 21 12 21s9-3.07 9-4.42v-5.16l-.41.22L12 15.68z"></path></svg>
+                    </div>
+                    <div class="pl-12 sm:pl-0 sm:ml-[calc(50%+1.5rem)]">
+                      <div class="p-5 bg-gray-900 rounded-lg shadow-lg border border-gray-800">
+                        <time class="text-sm font-medium text-gray-400 mb-1 block">2024 - 2028 (Expected)</time>
+                        <h3 class="text-xl font-bold text-white">Institute of Engineering and Management</h3>
+                        <p class="text-md text-red-500 mb-2">B.Tech, Computer Science & Engineering 🎓</p>
+                        <p class="text-gray-300 text-sm">
+                          Currently in my 2nd year, maintaining an 8.5 CGPA. Actively participating in hackathons and building projects with a focus on AI and web systems.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+        
+                  <!-- School Item --><li class="relative">
+                    <div class="absolute top-1.5 left-4 sm:left-1/2 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center -translate-x-1/2 ring-4 ring-gray-900">
+                      <!-- SVG: Book Icon --><svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path></svg>
+                    </div>
+                    <div class="pl-12 sm:pl-0 sm:mr-[calc(50%+1.5rem)] sm:text-right">
+                      <div class="p-5 bg-gray-900 rounded-lg shadow-lg border border-gray-800">
+                        <time class="text-sm font-medium text-gray-400 mb-1 block">Completed 2024</time>
+                        <h3 class="text-xl font-bold text-white">Techno India Group Public School</h3>
+                        <p class="text-md text-red-500 mb-2">High School (CBSE) 📚</p>
+                        <p class="text-gray-300 text-sm">
+                          Completed my high school education with a focus on science and computer studies, building a strong foundation for my engineering degree.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <!-- Journey Begins Item (REMOVED) --></ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- 
+        =================================
+        VIEW: SKILLS
+        =================================
+        --><div id="view-skills" class="view-container hidden">
+          <section class="py-12 sm:py-16 bg-[#0b0b0b] min-h-screen pt-24 sm:pt-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <!-- Programming Languages --><h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 text-center">
+                Programming Languages
+                <div class="h-1 w-24 bg-red-600 mx-auto mt-2"></div>
+              </h2>
+              <div id="programming-skills-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 mb-12">
+                <!-- Programming skill cards will be injected here by JS --></div>
+
+              <!-- Frontend Skills --><h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 text-center">
+                Frontend
+                <div class="h-1 w-24 bg-red-600 mx-auto mt-2"></div>
+              </h2>
+              <div id="frontend-skills-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 mb-12">
+                <!-- Frontend skill cards will be injected here by JS --></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- 
+        =================================
+        VIEW: PROJECTS
+        =================================
+        --><div id="view-projects" class="view-container hidden">
+          <div class="pt-24 sm:pt-32 min-h-screen bg-[#0b0b0b]">
+            <!-- Software Projects Row --><section class="py-12 sm:py-16 bg-[#0b0b0b]">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-white mb-6">Software Projects</h2>
+                <div id="software-projects-container" class="flex overflow-x-auto space-x-6 pb-4 no-scrollbar">
+                  <!-- Software project cards will be injected here by JS --></div>
+              </div>
+            </section>
+            <!-- Hardware Projects Row --><section class="py-12 sm:py-16 bg-[#0b0b0b]">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-white mb-6">Hardware Projects</h2>
+                <div id="hardware-projects-container" class="flex overflow-x-auto space-x-6 pb-4 no-scrollbar">
+                  <!-- Hardware project cards will be injected here by JS --></div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- 
+        =================================
+        VIEW: ACHIEVEMENTS
+        =================================
+        --><div id="view-achievements" class="view-container hidden">
+          <section class="py-12 sm:py-16 bg-[#0b0b0b] min-h-screen pt-24 sm:pt-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 class="text-3xl font-bold text-white mb-6">Experience & Achievements</h2>
+              <div id="achievements-container" class="flex overflow-x-auto space-x-6 pb-4 no-scrollbar">
+                <!-- Achievement cards will be injected here by JS --></div>
+            </div>
+          </section>
+        </div>
+        
+        <!-- 
+        =================================
+        VIEW: CONTACT (HIRE ME) - FIXED
+        =================================
+        --><div id="view-contact" class="view-container hidden">
+          <section id="contact" class="p-10 bg-black min-h-screen pt-24 sm:pt-32 flex flex-col justify-start items-center">
+            <div class="w-full max-w-xl text-center">
+              
+              <!-- New Profile Card -->
+              <div class="bg-gray-900 rounded-2xl shadow-lg p-8 flex flex-col items-center w-full mb-8">
+                <!-- Profile Image -->
+                <img 
+                  src="pfp.jpeg" 
+                  alt="Monit Bhattacharjee"
+                  class="w-32 h-32 rounded-full object-cover border-4 border-red-600 shadow-lg mb-6"
+                />
+
+                <!-- Contact Info (RESTORED) -->
+                <div class="text-center">
+                  <h3 id="contact-name-new" class="text-2xl font-bold text-white mb-1"></h3>
+                  <p id="contact-title-new" class="text-lg text-red-500 mb-3"></p>
+                  <p class="text-gray-400 mb-3 max-w-sm mx-auto">
+                    CSE Undergrad | Developer | Innovator
+                  </p>
+                  <p id="contact-affiliation-new" class="text-gray-500 text-sm mb-5"></p>
+                  <a id="contact-linkedin-new" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition font-medium">
+                    <!-- SVG: LinkedInIcon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    View Profile
+                  </a>
+                </div>
+              </div>
+
+              <!-- Contact Buttons (RESTORED) -->
+              <p class="text-2xl text-gray-300 mb-6">
+                I'm always up for a chat or a coffee! Feel free to reach out.
+              </p>
+              
+              <div class="flex flex-col space-y-4 w-full max-w-md mx-auto mb-8">
+                <!-- Email Button -->
+                <a id="contact-email-new" href="#" class="flex items-center justify-center p-4 bg-gray-800 rounded-full text-white hover:bg-red-600 transition-all duration-300 group">
+                  <!-- SVG: Email Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-red-500 group-hover:text-white transition-all"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <span class="text-lg font-medium"></span>
+                </a>
+                
+                <!-- Phone Button -->
+                <a id="contact-phone-new" href="#" class="flex items-center justify-center p-4 bg-gray-800 rounded-full text-white hover:bg-red-600 transition-all duration-300 group">
+                  <!-- SVG: Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-red-500 group-hover:text-white transition-all"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <span class="text-lg font-medium"></span>
+                </a>
+              </div>
+
+              <p class="text-xl text-gray-500">
+                Or catch up over a coffee ☕
+              </p>
+
+            </div>
+          </section>
+        </div>
+
+        <!-- 
+        =================================
+        VIEW: CERTIFICATES (RESTORED)
+        =================================
+        -->
+        <div id="view-certificates" class="view-container hidden">
+          <section class="py-12 sm:py-16 bg-[#0b0b0b] min-h-screen pt-24 sm:pt-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 class="text-3xl font-bold text-white mb-6">My Certificates</h2>
+              <div id="certificates-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Certificate cards will be injected here by JS -->
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+        <!-- 
+        =================================
+        VIEW: HOBBIES (NEW)
+        =================================
+        -->
+        <div id="view-hobbies" class="view-container hidden">
+          <section class="py-12 sm:py-16 bg-[#0b0b0b] min-h-screen pt-24 sm:pt-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 class="text-3xl font-bold text-white mb-12 text-center">
+                Hobbies & Interests
+                <div class="h-1 w-24 bg-red-600 mx-auto mt-2"></div>
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Chess Card -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-300">
+                  <!-- SVG Icon for Chess (using a Rook) -->
+                  <svg class="w-16 h-16 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><path d="M12 3v5"></path><path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path><path d="M18 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path></svg>
+                  <h3 class="text-2xl font-bold text-white mb-2">Chess</h3>
+                  <p class="text-gray-400">Beyond the 64 squares, I find a passion for strategy and foresight. Every match is a new puzzle, a lesson in patience and calculated aggression.</p>
+                </div>
+
+                <!-- Debates Card -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-300">
+                  <!-- SVG Icon for Debate -->
+                  <svg class="w-16 h-16 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><line x1="15" y1="10" x2="9" y2="10"></line><line x1="13" y1="6" x2="9"Vstack B</line></svg>
+                  <h3 class="text-2xl font-bold text-white mb-2">Debates</h3>
+                  <p class="text-gray-400">I thrive on the art of argumentation and constructing logical narratives. Debating sharpens my critical thinking and communication skills under pressure.</p>
+                </div>
+
+                <!-- Music Card -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-300">
+                  <!-- SVG Icon for Music -->
+                  <svg class="w-16 h-16 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                  <h3 class="text-2xl font-bold text-white mb-2">Music</h3>
+                  <p class="text-gray-400">Music is my ultimate focus tool and creative outlet. Whether it's Lo-Fi for coding or classical for thinking, it's the soundtrack to my problem-solving.</p>
+                </div>
+
+                <!-- Football Card -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-300">
+                  <!-- SVG Icon for Football (generic ball) -->
+                  <svg class="w-16 h-16 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="12" x2="12" y2="12"></line><line x1="12" y1="22" x2="12" y2="18"></line><line x1="12" y1="6" x2="12" y2="2"></line><path d="M4.93 4.93l2.83 2.83"></path><path d="M16.24 16.24l2.83 2.83"></path><path d="M4.93 19.07l2.83-2.83"></path><path d="M16.24 7.76l2.83-2.83"></path></svg>
+                  <h3 class="text-2xl font-bold text-white mb-2">Football</h3>
+                  <p class="text-gray-400">On the field, it's all about teamwork, strategy, and split-second decisions. It's the perfect physical complement to the mental challenges of coding.</p>
+                </div>
+
+                <!-- Swimming Card -->
+                <div class="flex flex-col items-center text-center p-6 bg-gray-900 rounded-lg shadow-lg hover:bg-gray-800 transition-colors duration-300">
+                  <!-- SVG Icon for Swimming -->
+                  <svg class="w-16 h-16 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"></circle><path d="M9 12l-1.5 6h9L15 12"></path><path d="M6 11l-2 3.5"></path><path d="M18 11l2 3.5"></path><path d="M4 18h16"></path></svg>
+                  <h3 class="text-2xl font-bold text-white mb-2">Swimming</h3>
+                  <p class="text-gray-400">Swimming is my form of meditation. The rhythmic focus and deep work of laps help clear my mind and build discipline, one stroke at a time.</p>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </main>
+
+    </div> <!-- End of #main-content wrapper --><!-- 
+    ======================================================================
+    3. PROJECT MODAL (POP-UP)
+    This is hidden by default and appears on top of all content.
+    ======================================================================
+    --><div id="project-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+      <!-- Backdrop --><div id="project-modal-backdrop" class="absolute inset-0 modal-backdrop backdrop-blur-sm"></div>
+      
+      <!-- Modal Content --><div id="project-modal-content" class="relative w-full max-w-3xl bg-[#181818] rounded-lg shadow-xl overflow-hidden">
+        <!-- Close Button --><button id="project-modal-close-btn" class="absolute top-3 right-3 text-gray-400 hover:text-white z-10">
+          <!-- SVG: CloseIcon --><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        
+        <!-- Image --><div class="w-full h-64 bg-gray-900 overflow-hidden">
+          <img id="modal-img" src="" alt="Project Image" class="w-full h-full object-cover" />
+        </div>
+        
+        <!-- Text Content --><div class="p-6">
+          <h2 id="modal-title" class="text-3xl font-bold text-red-500 mb-3"></h2>
+          <p id="modal-desc" class="text-lg text-gray-300 mb-6"></p>
+          <h3 class="text-xl font-semibold text-white mb-3">Tech Stack</h3>
+          <div id="modal-stack-container" class="flex flex-wrap gap-2">
+            <!-- Tech stack icons will be injected here by JS --></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!-- Link JS files -->
+<script src="loader.js"></script>
+<script src="portfolio.js"></script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,94 @@
+body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0b0b;
+      color: white;
+      overflow-x: hidden; /* Added from loader file */
+    }
+
+    /* Create the custom aspect ratio classes that were provided by the @tailwindcss/aspect-ratio plugin */
+    .aspect-w-4 {
+      position: relative;
+      padding-bottom: 75%; /* 3 / 4 = 75% */
+    }
+    .aspect-h-3 {
+      /* This class is used with aspect-w-4 */
+    }
+    .aspect-w-4 > * {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    
+    /* Hide scrollbars for the horizontal scrolling containers */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    /* Fix for modal backdrop */
+    .modal-backdrop {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* --- Loader Animation (from second file) --- */
+    .loader-container {
+      position: fixed;
+      inset: 0;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 200; /* Ensures it's above modal (z-100) and header (z-50) */
+      opacity: 1;
+      transition: opacity 1s ease-out;
+    }
+
+    .loader-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fade-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      animation: fadeInOut 3s ease-in-out infinite;
+      text-transform: uppercase; /* Added for uppercase */
+      text-shadow: 0 0 8px rgba(220, 38, 38, 0.7); /* Added for red glow */
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Added glow class for nav bar */
+    .nav-brand-glow {
+      text-shadow: 0 0 8px rgba(220, 38, 38, 0.7); /* text-red-600 glow */
+    }
+
+    /* --- New Wave Animation --- */
+    .wave-text span,
+    #nav-name span {
+      display: inline-block; /* Make transform work */
+      position: relative; /* Ensure proper layering if needed */
+      animation: wave 1.5s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px) scale(1.1);
+      }
+    }
